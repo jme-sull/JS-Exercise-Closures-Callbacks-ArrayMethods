@@ -68,7 +68,7 @@ function processLength(list, callback) {
 */
 function processLastItem(stringList, callback) {
 
-  let result = callback (stringList.pop());
+  let result = callback(stringList.pop());
     return result; 
 }
 
@@ -93,8 +93,8 @@ function processLastItem(stringList, callback) {
 */
 function processSum(numberList, callback) {
   let arrSum = numberList.reduce((a,b) => a + b, 0);
-  let result = callback(arrSum);
-    return result; 
+  return callback(arrSum);
+    
 }
 
 /**
@@ -118,8 +118,8 @@ function processSum(numberList, callback) {
 function processProduct(num1, num2, callback) {
 
     let product = num1 * num2;
-    let result = callback (product);
-      return result; 
+    return callback (product);
+
 }
 
 /**
@@ -168,8 +168,8 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
-  /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+function processDuplicateFree(list, callback) {
+ 
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -319,16 +319,18 @@ const counter = () => {
  * etc
 */
 function counterMakerWithLimit(maxValue) {
-  const counter = () => {
+
     let count = 0
       return function () {
         if (count <= maxValue) {
           return count++; }
-        else return count = 0;
+        else {
+          count = 0;
+          return count++; 
+        }
       }
-    };
   
-    return counter(); 
+    
 }
 
 /////////////// END OF CHALLENGE ///////////////
