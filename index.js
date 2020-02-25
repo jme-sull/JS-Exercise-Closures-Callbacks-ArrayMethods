@@ -275,9 +275,9 @@ return runners.reduce(function(accumulator, item){
  * etc
 */
 function counterMaker() { 
+  let count = 0;  
   return function counter() {
-    let count = 0;   
-    return ++count; 
+    return count++; 
   }
   // BROKEN CODE ENDS
 }
@@ -306,12 +306,19 @@ function counterMakerWithLimit(maxValue) {
   
   let count = -1; 
 
-  return function counter(){
-    if (count < maxValue)
-      return ++count; 
-    else (count = 0); 
-  };
+  return function(){
+    if(count === maxValue){
+          count = -1
+        };
+    
+
+return ++count; 
+
 }
+
+}
+
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
